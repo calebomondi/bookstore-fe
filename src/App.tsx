@@ -1,4 +1,5 @@
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
+import BookDetails from './components/bookdetails/BookDetails'
 
 function App() {
   const account = useAccount()
@@ -38,6 +39,11 @@ function App() {
         ))}
         <div>{status}</div>
         <div>{error?.message}</div>
+        <div>
+          {account.status === 'connected' && (
+            <BookDetails bookId={3}/>
+          )}
+        </div>
       </div>
     </>
   )
